@@ -1,0 +1,56 @@
+<div class="employee-container">
+  <h2>Employee Management</h2>
+
+  <div class="form-section">
+    <h3>Add New Employee</h3>
+    <form (ngSubmit)="addEmployee()">
+      <div class="form-group">
+        <input 
+          [(ngModel)]="newEmployee.firstName" 
+          name="firstName" 
+          placeholder="First Name" 
+          required 
+          class="input-field"
+        />
+      </div>
+      <div class="form-group">
+        <input 
+          [(ngModel)]="newEmployee.lastName" 
+          name="lastName" 
+          placeholder="Last Name" 
+          required 
+          class="input-field"
+        />
+      </div>
+      <div class="form-group">
+        <input 
+          [(ngModel)]="newEmployee.email" 
+          name="email" 
+          type="email"
+          placeholder="Email" 
+          required 
+          class="input-field"
+        />
+      </div>
+      <button type="submit" class="btn-submit">Add Employee</button>
+    </form>
+  </div>
+
+  <hr class="divider">
+
+  <div class="list-section">
+    <h3>Employee List ({{ employees.length }})</h3>
+    <div *ngIf="employees.length === 0" class="empty-state">
+      <p>No employees added yet. Add one to get started!</p>
+    </div>
+    <div *ngIf="employees.length > 0" class="employee-list">
+      <div *ngFor="let emp of employees" class="employee-card">
+        <div class="employee-info">
+          <h4>{{ emp.firstName }} {{ emp.lastName }}</h4>
+          <p class="email">{{ emp.email }}</p>
+          <p class="id">ID: {{ emp.id }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
