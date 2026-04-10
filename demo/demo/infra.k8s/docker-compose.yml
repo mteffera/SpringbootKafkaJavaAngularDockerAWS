@@ -46,7 +46,7 @@ services:
 
   frontend:
     build:
-      context: ../../../frontend/employee-ui
+      context: ../../../docker
       dockerfile: Dockerfile
     depends_on:
       backend:
