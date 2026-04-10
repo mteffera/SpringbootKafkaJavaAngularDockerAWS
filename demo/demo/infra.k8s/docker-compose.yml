@@ -28,7 +28,7 @@ services:
 
   backend:
     build:
-      context: ../..
+      context: ..
       dockerfile: infra.docker/Dockerfile.backend
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
@@ -46,7 +46,7 @@ services:
 
   frontend:
     build:
-      context: ../../frontend/employee-ui
+      context: ../../../frontend/employee-ui
       dockerfile: Dockerfile
     depends_on:
       backend:
