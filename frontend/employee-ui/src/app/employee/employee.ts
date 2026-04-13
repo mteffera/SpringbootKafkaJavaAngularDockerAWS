@@ -56,8 +56,8 @@ export class EmployeeComponent implements OnInit {
     this.error = null;
     this.http.post<Employee>(this.apiUrl, this.newEmployee).subscribe({
       next: (emp) => {
-        this.employees.push(emp);
         this.newEmployee = { firstName: '', lastName: '', email: '' };
+        
         this.loading = false;
         alert('Employee added successfully!');
       },

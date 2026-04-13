@@ -20,9 +20,9 @@ services:
     ports:
       - "9092:9092"
     healthcheck:
-      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-servers", "localhost:9092"]
-      interval: 5s
-      timeout: 3s
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 10s
+      timeout: 10s
       retries: 5
 
   backend:
