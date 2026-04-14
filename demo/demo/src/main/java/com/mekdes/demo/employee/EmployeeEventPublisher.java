@@ -8,6 +8,18 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 @Component
 @RequiredArgsConstructor
 public class EmployeeEventPublisher {
+    /**
+     * I am using KafkaTemplate to publish messages to Kafka. 
+     * It abstracts complexities of working with the KafkaProducer API. Spring aoutomattically handles
+        Creating a ProducerRecord
+        Serializing the key/value
+        Managing the producer lifecycle
+        Handling retries and acknowledgments
+        Handling async futures
+        Thread safety
+        Connection pooling
+        Error handling
+     */
     private final KafkaTemplate<String, String> kafkaTemplate;
     private static final String TOPIC = "employee-created";
 
@@ -18,7 +30,6 @@ public class EmployeeEventPublisher {
     }
 
     public void fallbackPublish(Employee employee, Throwable t) {
-        // log or store failed events; for demo, just log
         System.out.println("Kafka publish failed, circuit breaker opened: " + t.getMessage());
     }
 }

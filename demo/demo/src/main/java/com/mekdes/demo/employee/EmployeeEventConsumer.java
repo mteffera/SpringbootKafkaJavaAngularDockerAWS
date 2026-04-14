@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component;
 public class EmployeeEventConsumer {
     @KafkaListener(topics = "employee-created", groupId = "employee-service-group")
     public void consumeMessage(String message) {
-        log.info("📥 Received Kafka message: {}", message);
+        log.info("Received Kafka message: {}", message);
     }
 }

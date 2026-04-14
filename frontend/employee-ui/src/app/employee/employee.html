@@ -32,8 +32,9 @@
           class="input-field"
         />
       </div>
-      <button type="submit" class="btn-submit">Add Employee</button>
+      <button type="submit" class="btn-submit" [disabled]="loading">Add Employee</button>
     </form>
+    <div *ngIf="loading" class="spinner-overlay">Loading...</div>
   </div>
 
   <hr class="divider">

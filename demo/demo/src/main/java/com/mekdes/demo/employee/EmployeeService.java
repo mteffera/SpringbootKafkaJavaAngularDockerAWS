@@ -24,12 +24,12 @@ public class EmployeeService {
     }
 
     public Employee createFallback(Employee employee, Throwable t) {
-        System.err.println("❌ Create employee failed, circuit breaker opened: " + t.getMessage());
+        System.err.println("Create employee failed, circuit breaker opened: " + t.getMessage());
         return null;
     }
 
     public List<Employee> listFallback(Throwable t) {
-        System.err.println("❌ List employees failed, circuit breaker opened: " + t.getMessage());
+        System.err.println("List employees failed, circuit breaker opened: " + t.getMessage());
         return List.of();
     }
 }
